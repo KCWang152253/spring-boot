@@ -13,6 +13,8 @@ plugins {
 	id 'me.champeau.jmh' version '0.6.6' apply false
 }
 
+
+
 ext {
 	moduleProjects = subprojects.findAll { it.name.startsWith("spring-") }
 	javaProjects = subprojects - project(":framework-bom") - project(":framework-platform")
@@ -23,6 +25,9 @@ ext {
 
 configure(allprojects) { project ->
 	repositories {
+		maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'}
+
 		mavenCentral()
 		maven { url "https://repo.spring.io/libs-spring-framework-build" }
 		if (version.contains('-')) {
