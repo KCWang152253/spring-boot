@@ -40,7 +40,7 @@ import org.springframework.util.StringValueResolver;
  *
  * <p>Implemented interfaces are satisfied in the order in which they are
  * mentioned above.
- *
+ *BeanPostProcessor :Bean的后置处理器
  * <p>Application contexts will automatically register this with their
  * underlying bean factory. Applications do not use this directly.
  *
@@ -81,7 +81,7 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 				bean instanceof ApplicationStartupAware)) {
 			return bean;
 		}
-
+		//Aware 回掉接口
 		invokeAwareInterfaces(bean);
 		return bean;
 	}

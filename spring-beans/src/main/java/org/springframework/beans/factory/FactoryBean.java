@@ -141,6 +141,8 @@ public interface FactoryBean<T> {
 	 * @return whether the exposed object is a singleton
 	 * @see #getObject()
 	 * @see SmartFactoryBean#isPrototype()
+	 *
+	 * 也可以调成不是单实例的
 	 */
 	default boolean isSingleton() {
 		return true;

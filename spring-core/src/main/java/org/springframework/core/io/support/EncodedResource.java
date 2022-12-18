@@ -40,7 +40,7 @@ import org.springframework.util.ObjectUtils;
  * @since 1.2.6
  * @see Resource#getInputStream()
  * @see java.io.Reader
- * @see java.nio.charset.Charset
+ * @see java.nio.charset.Charset  适配器模式  对接  InputStreamSource 和 Resource
  */
 public class EncodedResource implements InputStreamSource {
 
@@ -137,6 +137,7 @@ public class EncodedResource implements InputStreamSource {
 	 */
 	public Reader getReader() throws IOException {
 		if (this.charset != null) {
+			//包装模式
 			return new InputStreamReader(this.resource.getInputStream(), this.charset);
 		}
 		else if (this.encoding != null) {
